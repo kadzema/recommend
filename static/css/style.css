@@ -2223,7 +2223,7 @@ label {
   margin-top: -1px;
   border-left: 0;
   background: #fff;
-  padding: 5px;
+  padding: 2px;
   text-align: center;
   overflow: hidden;
   display: block; }
@@ -2232,6 +2232,7 @@ label {
   .f-category img {
     display: block;
     height: 100px;
+    padding: 5px;
     margin: 0 auto;
     -webkit-transform: scale(1);
        -moz-transform: scale(1);
