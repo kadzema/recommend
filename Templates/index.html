@@ -114,7 +114,7 @@
     </div>
     <!-- /.header -->
 
-    <div class="intro" style="background-image: url(images/background-beer.jpg);">
+    <div class="intro" style="background-image: url(../static/images/background-beer.jpg);">
         <div class="dtable hw100">
             <div class="dtable-cell hw100">
                 <div class="container text-center">
@@ -132,10 +132,10 @@
                                    placeholder="City/Zipcode..." value="">
 
                         </div> -->
-                        <div class="col-xl-6 col-sm-6 search-col relative"> <input type="text" name="ads" class="form-control" placeholder="BeerAdvocate Username" value="">
+                        <div class="col-xl-6 col-sm-6 search-col relative" > <input type="text" id="beerSearchText" class="form-control" placeholder="BeerAdvocate Username" >
                         </div>
                         <div class="col-xl-6 col-sm-6 search-col">
-                            <button class="btn btn-primary btn-search btn-block"><i
+                            <button class="btn btn-primary btn-search btn-block" id="beerSearch"><i
                                     class="icon-search"></i><strong>Find Beer</strong></button>
                         </div>
                     </div>
@@ -335,29 +335,6 @@
     </div>
     <!-- /.main-container -->
 
-    <footer class="main-footer">
-    	<div class="footer-content">
-    		<div class="container">
-    			<div class="row">
-    				<div style="clear: both"></div>
-
-    				<div class="col-xl-12">
-    					<div class=" text-center paymanet-method-logo">
-							<h4>WE ACCEPT:</h4>
-    						<img src="images/site/payment/master_card.png" alt="img">
-    						<img alt="img" src="images/site/payment/visa_card.png">
-    						<img alt="img" src="images/site/payment/paypal.png">
-    						<img alt="img" src="images/site/payment/american_express_card.png"> <img alt="img" src="images/site/payment/discover_network_card.png">
-    						<img alt="img" src="images/site/payment/google_wallet.png">
-    					</div>
-
-    				</div>
-
-    			</div>
-    		</div>
-    	</div>
-    </footer>
-
 </div>
 <!-- /.wrapper -->
 
@@ -385,6 +362,19 @@
 <script type="text/javascript" src="../static/plugins/autocomplete/usastates.js"></script>
 
 <script type="text/javascript" src="../static/plugins/autocomplete/autocomplete-demo.js"></script>
+
+<script>
+    
+    var $searchBtn = document.querySelector("#beerSearch");
+
+    $searchBtn.addEventListener("click", handleSearchButtonClick);
+
+    function handleSearchButtonClick() {
+        var $input = document.getElementById('beerSearchText').value;
+        // var userValue = $usernameInput.value.trim()
+        document.location.href = "/recommend/" + $input
+    }
+</script>
 
 
 </body>

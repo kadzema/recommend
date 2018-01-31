@@ -21,12 +21,11 @@ def profile(username):
     profile = user_dict["userProfile"],
     top3 = user_dict["top3UserBeers"],
     recommend = user_dict["recommendations"],
-    r2 = round(user_dict["R2Score"] * 100, 2),
-    perc = round(user_dict["percCorrect"] * 100, 2))
+    r2 = round(user_dict["R2Score"],5))
 
 @app.route("/themagic")
 def magic():
-    return render_template("the-magic.html")
+    return render_template("pages/the-magic.html")
 
 
 @app.route("/beerdb")
