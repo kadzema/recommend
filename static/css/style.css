@@ -1333,7 +1333,7 @@ label {
       font-size: 20px; } }
 
 .intro h1, .intro-title {
-  color: #fff;
+  color: black;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 44px;
   line-height: 42px;
@@ -1816,7 +1816,7 @@ label {
   .intro .container {
     max-width: 800px; }
   .intro p {
-    color: #e8eced;
+    color: black;
     font-size: 18px;
     font-weight: 300;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
@@ -4345,7 +4345,8 @@ td.ads-details-td {
 .title-4 {
   font-weight: bold;
   letter-spacing: 1px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: black; }
 
 .faq-panel .panel-title {
   font-weight: 600; }

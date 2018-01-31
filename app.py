@@ -25,13 +25,7 @@ def profile(username):
 
 @app.route("/themagic")
 def magic():
-    return render_template("pages/the-magic.html")
-
-
-@app.route("/beerdb")
-def allbeers():
-    #needs to be adjusted with category selectors
-    return render_template("beer-list.html")
+    return render_template("the-magic.html")
 
 
 @app.route("/about")
@@ -46,13 +40,17 @@ def all_beers(filter_col, filter_cond):
     if filter_col == 'all' and filter_cond == 'all':
         df = pd.read_sql('SELECT * FROM beer.beer_feature_all order by "Score" desc limit 10',con=engine)
     else:
-        select_statement = f'SELECT * FROM beer.beer_feature_all WHERE "{filter_col}" = ' + f"'{filter_cond}'" + ' order by "Score" desc limit 10'
+        select_statement = f'SELECT * FROM beer.beer_feature_all WHERE "{filter_col}" = ' + f"'{filter_cond}'" + ' order by "Score" desc limit 20'
         df = pd.read_sql(select_statement,con=engine)
     df.rename(columns = {"Availaility": "Availability", "num_ratings": "# Ratings", "ReviewCount": "# Reviews", "Ranking": "BA Ranking"}, inplace = True)
-    sel_columns = ["Name", "Brewer", "Location", "Style", 'ABV', 'Availability', "Score", "ScoreClass", "pDev", "BA Ranking", "# Ratings", "# Reviews", "URL"]
+    sel_columns = ["Name", "Brewer", "Location", "Style", 'ABV', 'Availability', "Score", "ScoreClass", "pDev", "BA Ranking", "# Ratings", "# Reviews", "URL", "ImageLink"]
     df = df[sel_columns]
     df_dict = df.to_dict(orient = 'records')
-    return jsonify(df_dict)
+    # return jsonify(df_dict)
+    return render_template("beer-list.html", 
+    styleinfo = df_dict,
+    style = filter_cond
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
