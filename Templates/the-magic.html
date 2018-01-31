@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../static/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../static/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../static/ico/favicon.png">
     <title>Beer Recommender</title>
     <!-- Bootstrap core CSS -->
-    <link href="../static//bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
 
     <!-- styles needed for carousel slider -->
-    <link href="../static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="../static/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="../../static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../../static/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
 
     <!-- bxSlider CSS file -->
-    <link href="../static/plugins/bxslider/jquery.bxslider.css" rel="stylesheet"/>
+    <link href="../../static/plugins/bxslider/jquery.bxslider.css" rel="stylesheet"/>
 
     <!-- Just for debugging purposes. -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,7 +36,7 @@
             elements: true
         };
     </script>
-    <script src="../static/js/pace.min.js"></script>
+    <script src="../../static/js/pace.min.js"></script>
 
 
 </head>
@@ -97,7 +97,7 @@
     							</li>
     							<li class="dropdown-item"><a href="/themagic"><i class="icon-star-circled"></i> The Magic </a>
     							</li>
-    							<li class="dropdown-item"><a href="/beerdb"><i class="icon-th-thumb"></i> Beer Database </a>
+    							<li class="dropdown-item"><a href="/filter/all/all"><i class="icon-th-thumb"></i> The Top 20 </a>
     							</li>
     							<li class="dropdown-item"><a href="/about"><i class="icon-heart"></i> About Us
 
@@ -183,13 +183,10 @@
                             <div aria-labelledby="headingTwo" role="tabpanel" class="panel-collapse collapse"
                                  id="collapseTwo">
                                 <div class="card-body">
-                                    Curabitur sed leo dictum, convallis lorem eu, suscipit mi. Mauris viverra blandit
-                                    varius. Proin non sem turpis. Etiam fringilla hendrerit nunc at accumsan. Duis
-                                    mollis auctor lobortis.
-                                    <br><br>
-                                    Etiam elementum nulla non erat blandit, sed porttitor urna malesuada. Cras euismod a
-                                    nulla sed ornare. Vestibulum id molestie nulla. Phasellus sodales, sapien vitae
-                                    auctor rhoncus
+                                    Scrape BeerAdvocate (sorry, BA) to build a beer database, since this somehow does not exist 
+                                    online in any meaningful fashion. Also scrape BeerAdvocate for User Reviews, as this is what we 
+                                    will eventually use as data for our machine learning algorithm to make recommendations. Again, sorry, BA.
+
                                 </div>
                             </div>
                         </div>
@@ -206,10 +203,9 @@
                             <div aria-labelledby="headingThree" role="tabpanel" class="panel-collapse collapse"
                                  id="collapseThree">
                                 <div class="card-body">
-                                    Pellentesque in mauris placerat, porttitor lorem id, ornare nisl. Pellentesque
-                                    rhoncus convallis felis, in egestas libero. Donec et nibh dapibus, sodales nisi
-                                    quis, fringilla augue. Donec dui quam, egestas in varius ut, tincidunt quis ipsum.
-                                    Nulla nec odio eu nisi imperdiet dictum.
+                                    Use one hot encoding to assign values to our categorical information including color, aroma, and 
+                                    custom flavor. Instead of using the SciKit Learn way, we flexed our Pandas skills and used dummy values 
+                                    to one hot encode our features.
                                 </div>
                             </div>
                         </div>
@@ -226,10 +222,13 @@
                             <div aria-labelledby="heading_04" role="tabpanel" class="panel-collapse collapse"
                                  id="collapse_04">
                                 <div class="card-body">
-                                    Pellentesque in mauris placerat, porttitor lorem id, ornare nisl. Pellentesque
-                                    rhoncus convallis felis, in egestas libero. Donec et nibh dapibus, sodales nisi
-                                    quis, fringilla augue. Donec dui quam, egestas in varius ut, tincidunt quis ipsum.
-                                    Nulla nec odio eu nisi imperdiet dictum.
+                                    Test machine learning algorithms. And continue testing. And test some more. We started with K-Nearest Neighbors 
+                                    and had good results, but had difficulty automating the selection of the optimal K-value. We experimented with a 
+                                    handful of other machine learning methods before decoding on Random Forest as our algorithm of choice. 
+                                    <br><br>
+                                    This is only the half of it. We had to account for Users without enough reviews, and for users for which our 
+                                    algorithm did not give any recommendations (drink more beer, everyone). All in all, we found a method that delivers 
+                                    great results.
                                 </div>
                             </div>
                         </div>
@@ -246,10 +245,12 @@
                             <div aria-labelledby="heading_05" role="tabpanel" class="panel-collapse collapse"
                                  id="collapse_05">
                                 <div class="card-body">
-                                    Pellentesque in mauris placerat, porttitor lorem id, ornare nisl. Pellentesque
-                                    rhoncus convallis felis, in egestas libero. Donec et nibh dapibus, sodales nisi
-                                    quis, fringilla augue. Donec dui quam, egestas in varius ut, tincidunt quis ipsum.
-                                    Nulla nec odio eu nisi imperdiet dictum.
+                                    Put everything together, and we have an interactive site which takes in a BeerAdvocate username, scrapes 
+                                    the site in real time for that users reviews, and then runs a machine learning algorithm to determine which beers 
+                                    that user might like. We eliminate the beers the user has already rated from our database, so as not to recommend 
+                                    a beer the user has already had, and then return a list of beer recommendations with high confidence.
+                                    <br><br>
+                                    Voila.
                                 </div>
                             </div>
                         </div>
@@ -262,57 +263,56 @@
 
             </div>
         </div>
+
+        
+        <div class="parallaxbox about-parallax-bottom">
+                <div class="container">
+                    <div class="row text-center featuredbox">
+                        <div class="col-sm-3 xs-gap">
+                            <div class="inner">
+                                <div class="add-image"><img alt="bsoup"
+                                        src="../../static/images/bsoup.jpg"
+                                        class="thumbnail no-margin"></a></div>
+                                <h3 class="title-4">BeautifulSoup</h3>
+        
+                            </div>
+                        </div>
+                        <div class="col-sm-3 xs-gap">
+                            <div class="inner">
+                                    <div class="add-image"><img alt="pandas"
+                                        src="../../static/images/pandas.png"
+                                        class="thumbnail no-margin"></a></div>
+                                <h3 class="title-4">Pandas</h3>
+        
+                            </div>
+                        </div>
+                        <div class="col-sm-3 xs-gap">
+                            <div class="inner">
+                                    <div class="add-image"><img alt="scikit"
+                                        src="../../static/images/scikit.png"
+                                        class="thumbnail no-margin"></a></div>
+                                <h3 class="title-4">ScikitLearn</h3>
+        
+                            </div>
+                        </div>
+                        <div class="col-sm-3 xs-gap">
+                                <div class="inner">
+                                        <div class="add-image"><img alt="js"
+                                            src="../../static/images/js.png"
+                                            class="thumbnail no-margin"></a></div>
+                                    <h3 class="title-4">HTML/CSS/Javascript</h3>
+            
+                                </div>
+                            </div>
+        
+        
+                    </div>
+                </div>
+        
+            </div>
     </div>
     <!-- /.main-container -->
-    <div class="parallaxbox about-parallax-bottom">
-        <div class="container">
-            <div class="row text-center featuredbox">
-                <div class="col-sm-3 xs-gap">
-                    <div class="inner">
-                        <div class="icon-box-wrap"><i class="icon-book-open ln-shadow-box shape-3"></i></div>
-                        <h3 class="title-4">BeautifulSoup</h3>
 
-                        <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                            posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit
-                            tortor.</p>
-                    </div>
-                </div>
-                <div class="col-sm-3 xs-gap">
-                    <div class="inner">
-                        <div class="icon-box-wrap"><i class=" icon-lightbulb ln-shadow-box shape-2"></i></div>
-                        <h3 class="title-4">Pandas</h3>
-
-                        <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                            posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit tortor.
-                            .</p>
-                    </div>
-                </div>
-                <div class="col-sm-3 xs-gap">
-                    <div class="inner">
-                        <div class="icon-box-wrap"><i class="icon-megaphone ln-shadow-box shape-7"></i></div>
-                        <h3 class="title-4">ScikitLearn</h3>
-
-                        <p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-                            posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit
-                            tortor. </p>
-                    </div>
-				</div>
-				<div class="col-sm-3 xs-gap">
-						<div class="inner">
-							<div class="icon-box-wrap"><i class="icon-megaphone ln-shadow-box shape-7"></i></div>
-							<h3 class="title-4">HTML/CSS/Javascript</h3>
-	
-							<p>Ein herausragendes Beispiel für Story-Telling im modernen Webdesign. et suscipit sapien
-								posuere quis. Maecenas ut iaculis nunc, eget efficitur ipsum. Nam vitae hendrerit
-								tortor. </p>
-						</div>
-					</div>
-
-
-            </div>
-        </div>
-
-    </div>
 
 <!-- /.footer -->
 </div>
@@ -333,11 +333,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="../static/bootstrap/js/bootstrap.min.js"></script>
-<script src="../static/js/vendors.min.js"></script>
+<script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/js/vendors.min.js"></script>
 
 <!-- include custom script for site  -->
-<script src="../static/js/script.js"></script>
+<script src="../../static/js/script.js"></script>
 
 </body>
 </html>
