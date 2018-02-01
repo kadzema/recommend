@@ -464,10 +464,10 @@ def random_forest(username):
         X_train5, X_test5, y_train5, y_test5 = train_test_split(X, target5, random_state = 42)
 
         # build model and score for 5%
-        rf5 = RandomForestClassifier(n_estimators=200, oob_score = True)
+        rf5 = RandomForestClassifier(n_estimators=200)
         rf5 = rf5.fit(X_train5, y_train5)
         score = rf5.score(X_test5, y_test5)
-        oob_score = rf5.oob_score_
+        #oob_score = rf5.oob_score_
         
         #make predictions/recommendations
         recsX = recs_df[X_columns]
@@ -476,7 +476,7 @@ def random_forest(username):
         
         #print results
         print(f"Random forest top 5% R2 Score: {score}")
-        print(f"Random forest top 5% oob: {oob_score}")
+        #print(f"Random forest top 5% oob: {oob_score}")
         
     if flag == 2 or num_recs == 0:
         
@@ -487,7 +487,7 @@ def random_forest(username):
         rf10 = RandomForestClassifier(n_estimators=200, oob_score = True)
         rf10 = rf10.fit(X_train10, y_train10)
         score = rf10.score(X_test10, y_test10)
-        oob_score = rf10.oob_score_
+       # oob_score = rf10.oob_score_
         
         #make predictions/recommendations
         recsX = recs_df[X_columns]
@@ -496,7 +496,7 @@ def random_forest(username):
         
         #print results
         print(f"Random forest top 10% R2 Score: {score}")
-        print(f"Random forest top 10% oob: {oob_score}")
+        #print(f"Random forest top 10% oob: {oob_score}")
         
     if flag == 1 or num_recs == 0:
         
