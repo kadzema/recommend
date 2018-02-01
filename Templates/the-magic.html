@@ -159,12 +159,11 @@
                             <div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse show"
                                  id="collapseOne">
                                 <div class="card-body">
-									After a long exploration period we agreed on a strategy that would enable us to harness
+									After a long exploration period, we agreed on a strategy that would enable us to harness
 									the features of beer styles, while also injecting unique characteristics of different beers 
 									within those styles.
                                     <br><br>
-									Unfortunately, that meant we had to do some manual work upfront to classify the different 
-									beer styles with categorical information. As a group, we determined a handful of characteristics 
+									As a group, we researched and rated beer styles on a handful of characteristics 
 									for each beer style, namely: color, flavor, hoppiness, maltiness, fruitiness, body, 
 									sweetness, sour, spicy, bitter, aroma, and custom flavor.
                                 </div>
@@ -183,9 +182,9 @@
                             <div aria-labelledby="headingTwo" role="tabpanel" class="panel-collapse collapse"
                                  id="collapseTwo">
                                 <div class="card-body">
-                                    Scrape BeerAdvocate (sorry, BA) to build a beer database, since this somehow does not exist 
-                                    online in any meaningful fashion. Also scrape BeerAdvocate for User Reviews, as this is what we 
-                                    will eventually use as data for our machine learning algorithm to make recommendations. Again, sorry, BA.
+                                    We scraped BeerAdvocate (sorry, BA) to build a beer database, since this somehow does not exist 
+                                    online in any meaningful fashion. When a user enters his username, a live scrape of their user ratings is performed,
+                                    matched with our database, and used to build an machine learning algorithm for that user to make recommendations. Again, sorry, BA.
 
                                 </div>
                             </div>
@@ -222,13 +221,14 @@
                             <div aria-labelledby="heading_04" role="tabpanel" class="panel-collapse collapse"
                                  id="collapse_04">
                                 <div class="card-body">
-                                    Test machine learning algorithms. And continue testing. And test some more. We started with K-Nearest Neighbors 
-                                    and had good results, but had difficulty automating the selection of the optimal K-value. We experimented with a 
-                                    handful of other machine learning methods before decoding on Random Forest as our algorithm of choice. 
+                                    We tested serveral machine learning algorithms. K-Nearest Neighbors had good results, but had we
+                                    had difficulty automating the selection of the optimal K-value for each user. We experimented with a 
+                                    handful of other machine learning methods, namely Decision Trees, before deciding on Random Forest as our algorithm of choice. 
                                     <br><br>
-                                    This is only the half of it. We had to account for Users without enough reviews, and for users for which our 
-                                    algorithm did not give any recommendations (drink more beer, everyone). All in all, we found a method that delivers 
-                                    great results.
+                                    Out backend also accounts for Users without enough reviews, and for users for which our 
+                                    algorithm did not give any recommendations (drink more beer, everyone). In that case a generic list of the 
+                                    top beer in 6 different styles available year round, and 4 non-year round beers is provided.  A user is alerted to this under R2 score.  
+                                    All in all, we found a method that delivers great results.
                                 </div>
                             </div>
                         </div>
