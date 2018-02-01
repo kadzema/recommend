@@ -338,6 +338,9 @@ from sklearn.ensemble import RandomForestClassifier
 
 # function for ratings scrape
 
+
+# function for ratings scrape
+
 def user_ratings(username):
     ratings_count = 0
     user_ratings = []
@@ -357,26 +360,25 @@ def user_ratings(username):
         else: 
             ratings_list = []
         
-        # list for top 3
-        top_3 = []
-        
-        #  dictionary holding user stats
-        profile_dict = {"user_name" : username}
         
         # generate profile table if first go
         if ratings_count == 0:
+             # list for top 3
+            top_3 = []
+        
+        #  dictionary holding user stats
+            profile_dict = {"user_name" : username}
              # grab user info table
             profile_table = soup.find("div", class_ = "pairsJustified")
-            
+            #print(len(profile_table))
             if profile_table:
                 # data-points
                 dls = profile_table.find_all('dl')
-
-
+               
                 # loop through table items and make dictionary keys and values
                 for dl in dls:
                     profile_dict[dl.find('dt').text] = dl.find('dd').text
-
+                
 
                 # isolate first 3 or less for rop 3 beers from profile
                 if len(ratings_list) >=3:
