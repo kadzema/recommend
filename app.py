@@ -21,7 +21,7 @@ def profile(username):
     profile = user_dict["userProfile"],
     top3 = user_dict["top3UserBeers"],
     recommend = user_dict["recommendations"],
-    r2 = round(user_dict["R2Score"],5))
+    r2 = user_dict["R2Score"])
 
 @app.route("/themagic")
 def magic():
